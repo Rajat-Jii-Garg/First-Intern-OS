@@ -1,0 +1,7 @@
+node_modules/
+.env
+# Comment out uploads if you want to track default avatar, otherwise keep them ignored
+# uploads/avatars/*
+# uploads/submissions/*
+# !uploads/avatars/default-avatar.png
+npm-debug.log*

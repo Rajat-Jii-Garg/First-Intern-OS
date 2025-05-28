@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
+**/build/
+**/dist/
+.parcel-cache/
+
+# Environment variables - IMPORTANT for security
+.env
+.env*
+*.env
+client/.env.local
+client/.env.development.local
+client/.env.test.local
+client/.env.production.local
+server/.env
+
+# IDE & OS files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*~
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Server uploads (if you don't want to track uploaded files in git)
+# server/uploads/avatars/*
+# server/uploads/submissions/*
+# !server/uploads/avatars/default-avatar.png # Example: Keep the default avatar
