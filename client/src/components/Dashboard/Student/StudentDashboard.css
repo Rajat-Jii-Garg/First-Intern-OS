@@ -1,0 +1,365 @@
+/* client/src/components/Dashboard/Student/StudentDashboard.css */
+
+/* --- Student Dashboard Overview ---
+.student-dashboard-overview {
+    Spacing between sections
+} */
+.dashboard-welcome {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: var(--primary-light-color);
+    border-left: 5px solid var(--primary-color);
+}
+.dashboard-user-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--light-color);
+    box-shadow: var(--box-shadow-sm);
+}
+.dashboard-welcome h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin: 0 0 0.3rem 0;
+}
+.dashboard-welcome p {
+    font-size: 1rem;
+    color: var(--text-light-color);
+    margin: 0;
+}
+
+.dashboard-quick-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+.stat-card {
+    display: flex;
+    align-items: center;
+    padding: 1.25rem;
+    gap: 1rem;
+}
+.stat-icon {
+    font-size: 2.5rem; /* Larger icons */
+    padding: 0.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light-color);
+}
+.stat-card.stat-info .stat-icon { background-color: var(--info-color); }
+.stat-card.stat-success .stat-icon { background-color: var(--success-color); }
+.stat-card.stat-primary .stat-icon { background-color: var(--primary-color); }
+.stat-card.stat-warning .stat-icon { background-color: var(--warning-color); }
+
+.stat-content h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 0.2rem 0;
+}
+.stat-card.stat-info .stat-content h4 { color: var(--info-color); }
+.stat-card.stat-success .stat-content h4 { color: var(--success-color); }
+.stat-card.stat-primary .stat-content h4 { color: var(--primary-color); }
+.stat-card.stat-warning .stat-content h4 { color: var(--warning-color); }
+
+.stat-content p {
+    font-size: 0.9rem;
+    color: var(--text-light-color);
+    margin: 0;
+}
+
+.dashboard-progress-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+}
+.dashboard-progress-section h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin: 0 0 1rem 0;
+}
+.progress-bar-container {
+    width: 100%;
+    background-color: var(--border-color);
+    border-radius: var(--border-radius-lg); /* Rounded */
+    height: 25px; /* Taller progress bar */
+    overflow: hidden;
+}
+.progress-bar-fill {
+    height: 100%;
+    background-color: var(--success-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: var(--border-radius-lg); /* Rounded */
+    transition: width 0.5s ease-in-out;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+.student-dashboard-overview h3 { /* For "Your Internship Projects" heading */
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+.project-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+/* --- Project Card --- */
+.project-card-item {
+    display: flex;
+    flex-direction: column;
+    border-left: 5px solid; /* Status color will be applied here */
+}
+.project-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+.project-card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin: 0;
+}
+.project-card-status-badge {
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--border-radius);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--light-color);
+    text-transform: capitalize;
+}
+/* Status specific border colors */
+.project-card-item.status-not-started { border-left-color: var(--secondary-color); }
+.project-card-item.status-in-progress { border-left-color: var(--info-color); }
+.project-card-item.status-submitted { border-left-color: var(--warning-color); }
+.project-card-item.status-approved { border-left-color: var(--success-color); }
+.project-card-item.status-rejected { border-left-color: var(--danger-color); }
+
+.project-card-description {
+    font-size: 0.9rem;
+    color: var(--text-light-color);
+    margin-bottom: 1rem;
+    flex-grow: 1; /* Pushes footer down */
+    min-height: 60px; /* Ensure some height */
+}
+.project-feedback {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    border-left: 3px solid;
+}
+.project-feedback.rejected {
+    background-color: #fff5f5; /* Light red */
+    border-left-color: var(--danger-color);
+    color: var(--danger-color);
+}
+.project-feedback.approved {
+    background-color: #f0fff4; /* Light green */
+    border-left-color: var(--success-color);
+    color: var(--success-color);
+}
+
+
+.project-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Pushes to bottom */
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+.project-action-btn {
+    font-size: 0.85rem !important; /* Smaller button */
+    padding: 0.4rem 0.8rem !important;
+}
+.project-action-btn svg { font-size: 0.9em; margin-right: 0.3rem;}
+
+.project-status-display {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+.project-status-display svg { margin-right: 0.4rem; }
+.project-status-display.approved { color: var(--success-color); }
+
+.submission-date {
+    font-size: 0.8rem;
+    color: var(--text-light-color);
+}
+
+
+/* --- Submit Project Page --- */
+.submit-project-page {
+    max-width: 800px;
+    margin: 0 auto; /* Center it */
+}
+.file-preview-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background-color: var(--primary-light-color);
+    border: 1px dashed var(--primary-color);
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+.file-preview-container svg { font-size: 1.2em; }
+.remove-file-btn { margin-left: auto; }
+
+
+/* --- My Submissions Page --- */
+.submissions-list .submission-item {
+    margin-bottom: 1.5rem;
+}
+.submission-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+.submission-item-header h3 {
+    font-size: 1.3rem;
+    margin: 0;
+    color: var(--dark-color);
+}
+.submission-status-badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px; /* Pill shape */
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--light-color);
+    display: inline-flex;
+    align-items: center;
+}
+.submission-status-badge svg { margin-right: 0.3rem;}
+
+.project-title-snapshot {
+    font-size: 0.9rem;
+    color: var(--text-light-color);
+    margin-bottom: 0.75rem;
+}
+.submission-description {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+.submission-links {
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.submission-links .btn svg { margin-right: 0.4rem;}
+
+.submission-feedback {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    border-left: 4px solid;
+}
+.feedback-rejected {
+    background-color: rgba(239, 68, 68, 0.1);
+    border-left-color: var(--danger-color);
+    color: var(--danger-color);
+}
+.feedback-approved {
+    background-color: rgba(16, 185, 129, 0.1);
+    border-left-color: var(--success-color);
+    color: var(--success-color);
+}
+.submission-item-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- Certificate Page --- */
+.certificate-page {
+    text-align: center;
+}
+.certificate-page .alert { text-align: left; } /* Align alert text left for readability */
+.certificate-page .btn-lg svg { margin-right: 0.5rem; }
+
+
+/* --- Profile Page --- */
+.profile-page {
+    max-width: 700px;
+    margin: 0 auto;
+}
+.profile-section {
+    margin-bottom: 2rem; /* Spacing between profile sections */
+}
+.profile-section h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+.profile-section h3 svg {
+    margin-right: 0.75rem;
+    color: var(--primary-color);
+    font-size: 1.2em;
+}
+.avatar-upload-area {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.avatar-preview {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--border-color);
+}
+.profile-page .btn-sm {
+    font-size: 0.85rem !important;
+    padding: 0.4rem 0.8rem !important;
+}
+.profile-page .btn-sm svg { margin-right: 0.3rem;}
+
+@media (max-width: 768px) {
+    .dashboard-welcome { flex-direction: column; text-align: center; gap: 1rem; }
+    .dashboard-user-avatar { width: 60px; height: 60px; }
+    .dashboard-welcome h2 { font-size: 1.4rem; }
+    .dashboard-welcome p { font-size: 0.9rem; }
+
+    .stat-card { flex-direction: column; text-align: center; gap: 0.5rem; padding: 1rem;}
+    .stat-icon { font-size: 2rem; padding: 0.6rem; }
+    .stat-content h4 { font-size: 1.3rem; }
+
+    .project-cards-grid { grid-template-columns: 1fr; } /* Stack cards on mobile */
+    .submit-project-page .page-title, .my-submissions-page .page-title, .certificate-page .page-title, .profile-page .page-title {
+        font-size: 1.5rem; /* Smaller page titles for dashboard sections on mobile */
+    }
+    .file-preview-container { flex-direction: column; align-items: flex-start; gap: 0.5rem;}
+    .remove-file-btn { margin-left: 0; margin-top: 0.5rem;}
+}

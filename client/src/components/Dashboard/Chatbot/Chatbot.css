@@ -1,0 +1,151 @@
+/* client/src/components/Dashboard/Chatbot/Chatbot.css */
+.chatbot-toggler-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    border: none;
+    width: 60px; /* Circle */
+    height: 60px;
+    border-radius: 50%;
+    font-size: 1.5rem; /* Icon size */
+    box-shadow: var(--box-shadow-lg);
+    cursor: pointer;
+    z-index: 1000; /* Above most content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.chatbot-toggler-btn:hover {
+    transform: scale(1.1);
+    background-color: var(--primary-hover-color);
+}
+.chatbot-toggler-btn .toggler-text { /* Text next to icon when closed */
+    display: none; /* Initially hidden, can be shown on hover or if button is wider */
+    /* Example: position: absolute; right: 70px; background: var(--primary-color); padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; white-space: nowrap; */
+}
+
+
+.chatbot-window-container {
+    position: fixed;
+    bottom: 100px; /* Above toggler */
+    right: 25px;
+    width: 360px;
+    max-width: calc(100vw - 40px); /* Responsive width */
+    height: 500px;
+    max-height: calc(100vh - 120px); /* Responsive height */
+    background-color: var(--light-color);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-lg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Important for border-radius on children */
+    z-index: 999; /* Below toggler if it overlaps, but usually separate */
+    border: 1px solid var(--border-color);
+}
+
+.chatbot-header-bar {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.05rem;
+}
+.chatbot-close-icon {
+    background: none;
+    border: none;
+    color: var(--light-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.chatbot-close-icon:hover { opacity: 1; }
+
+.chatbot-messages-area {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* Space between bubbles */
+    background-color: var(--background-color); /* Light background for chat area */
+}
+
+.chat-bubble {
+    padding: 0.6rem 1rem;
+    border-radius: 18px; /* More rounded bubbles */
+    max-width: 80%;
+    word-wrap: break-word;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.user-bubble {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    align-self: flex-end;
+    border-bottom-right-radius: 5px; /* WhatsApp style */
+}
+
+.bot-bubble {
+    background-color: #e9ecef; /* Lighter grey for bot */
+    color: var(--text-color);
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+
+.chatbot-input-bar {
+    display: flex;
+    padding: 0.75rem;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--light-color);
+}
+.chatbot-input-field {
+    flex-grow: 1;
+    border: 1px solid var(--border-color);
+    border-radius: 20px; /* Pill shape input */
+    padding: 0.6rem 1rem;
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+}
+.chatbot-input-field:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+.chatbot-send-btn {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    border: none;
+    width: 45px; /* Circle button */
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chatbot-send-btn:hover { background-color: var(--primary-hover-color); }
+.chatbot-send-btn:disabled { background-color: var(--secondary-color); cursor: not-allowed; }
+
+@media (max-width: 480px) {
+    .chatbot-window-container {
+        width: calc(100vw - 30px);
+        right: 15px;
+        bottom: 85px;
+        height: 450px;
+    }
+    .chatbot-toggler-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+        bottom: 20px;
+        right: 20px;
+    }
+}
