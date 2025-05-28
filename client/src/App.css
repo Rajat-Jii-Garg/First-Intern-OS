@@ -1,0 +1,57 @@
+/* client/src/App.css */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--background-color); /* Ensure app bg is consistent */
+}
+
+/* Main content area when using layouts with fixed Navbar/Sidebar */
+.main-content-wrapper {
+  flex-grow: 1;
+  display: flex; /* For layouts with sidebar */
+}
+
+.page-content-container {
+  flex-grow: 1;
+  padding: 1.5rem;
+  overflow-y: auto; /* Allow scrolling for content area only */
+  /* background-color: var(--light-color); Optionally, if content area has a different bg */
+}
+
+/* Example: Adjust for fixed top navbar 
+body.has-fixed-navbar .page-content-container {
+   padding-top: 70px; /* Adjust to navbar height
+} */
+
+/* Example: Adjust for fixed sidebar layout
+body.has-fixed-sidebar .main-content-wrapper {
+   padding-left: 250px;
+} */
+
+
+/* Styles for the main content area within a dashboard layout */
+.dashboard-page-content {
+  background-color: var(--card-bg-color);
+  padding: 1.5rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--box-shadow);
+  min-height: calc(100vh - 60px - 3rem - 2rem); /* Navbar height - top/bottom padding - extra */
+  /* The 60px is an example navbar height, adjust as needed */
+  /* The 3rem is for top/bottom padding of page-content-container */
+  /* The 2rem is an arbitrary extra buffer, adjust for footer etc. */
+}
+
+
+@media (max-width: 768px) {
+  .page-content-container {
+    padding: 1rem;
+  }
+  .dashboard-page-content {
+    padding: 1rem;
+    min-height: calc(100vh - 50px - 2rem - 1rem); /* Adjusted for mobile */
+  }
+  body.has-fixed-sidebar .main-content-wrapper {
+    padding-left: 0; /* Sidebar might be overlay or hidden on mobile */
+  }
+}

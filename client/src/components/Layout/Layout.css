@@ -1,0 +1,324 @@
+/* client/src/components/Layout/Layout.css */
+
+/* --- Navbar Styles --- */
+.navbar {
+    background-color: var(--light-color);
+    height: 70px; /* Increased height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem; /* Slightly larger font */
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: var(--box-shadow);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    padding: 0 2rem; /* More padding */
+}
+
+.navbar-logo {
+    color: var(--primary-color);
+    justify-self: start;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.8rem; /* Larger logo */
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+.logo-img { height: 40px; margin-right: 0.5rem;} /* If using an image logo */
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+
+.nav-item {
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    height: 100%;
+    font-weight: 500;
+    transition: all 0.2s ease-out;
+}
+.nav-links > svg { /* Icon in nav link */
+    margin-right: 0.4rem;
+    font-size: 1.1em; /* Slightly larger icons */
+}
+.nav-avatar-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+}
+
+
+.nav-links:hover, .nav-links.active {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+}
+.nav-links.btn, .nav-links-button.btn { /* For button-styled nav links */
+    padding: 0.5rem 1rem !important; /* Override btn padding */
+    height: auto;
+    margin-left: 0.5rem;
+    border-bottom: none !important; /* Remove underline for buttons */
+}
+.nav-links.btn:hover, .nav-links-button.btn:hover {
+    border-bottom: none !important;
+}
+.nav-links-button {
+    background: none;
+    color: var(--danger-color);
+    border: 1px solid var(--danger-color) !important; /* Important to override general btn */
+}
+.nav-links-button:hover {
+    background: var(--danger-color) !important;
+    color: var(--light-color) !important;
+}
+
+
+.menu-icon {
+    display: none; /* Hidden on desktop */
+}
+
+
+/* --- Footer Styles --- */
+.footer {
+    background-color: var(--dark-color);
+    color: #adb5bd; /* Lighter grey for footer text */
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+.footer-container p {
+    margin: 0.3rem 0;
+}
+.footer-container a {
+    color: #dee2e6;
+    margin: 0 0.5rem;
+}
+.footer-container a:hover {
+    color: var(--primary-light-color);
+}
+
+/* --- Main Layout (Public Pages) --- */
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.public-content-area {
+    flex-grow: 1;
+    padding-top: 70px; /* Navbar height */
+}
+
+/* --- Dashboard Layout Styles --- */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    position: relative; /* For sidebar toggling */
+    background-color: var(--background-color);
+}
+
+.dashboard-sidebar-container {
+    width: 260px; /* Sidebar width */
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    background-color: var(--light-color); /* Or a darker theme for sidebar */
+    box-shadow: var(--box-shadow-md);
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto; /* Scroll if content exceeds height */
+}
+
+.sidebar {
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.sidebar-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.75rem;
+    border: 3px solid var(--primary-light-color);
+}
+.sidebar-username {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin: 0 0 0.25rem 0;
+}
+.sidebar-userrole {
+    font-size: 0.85rem;
+    color: var(--text-light-color);
+}
+.sidebar-nav ul { list-style: none; padding: 0; margin: 0; }
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 0.85rem 1rem;
+    margin: 0.3rem 0;
+    border-radius: var(--border-radius);
+    color: var(--text-light-color);
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.sidebar-link > svg { margin-right: 0.8rem; font-size: 1.1em; }
+.sidebar-link:hover {
+    background-color: var(--primary-light-color);
+    color: var(--primary-color);
+}
+.sidebar-link.active {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    font-weight: 600;
+    box-shadow: var(--box-shadow-sm);
+}
+.sidebar-logout-btn {
+    margin-top: auto; /* Pushes to bottom */
+    width: 100%;
+}
+.sidebar-logout-btn > svg { margin-right: 0.5rem;}
+
+.dashboard-content-wrapper {
+    flex-grow: 1;
+    margin-left: 260px; /* Sidebar width */
+    display: flex;
+    flex-direction: column;
+    transition: margin-left 0.3s ease-in-out;
+}
+.dashboard-topbar {
+    height: 60px;
+    background-color: var(--light-color);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    position: sticky; /* Sticky topbar within content area */
+    top: 0;
+    z-index: 990; /* Below navbar if navbar is also sticky globally */
+}
+.sidebar-toggle-btn {
+    display: none; /* Hidden on desktop, shown on mobile */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    margin-right: 1rem;
+}
+.topbar-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+/* Main content area within dashboard */
+.dashboard-main-content-area {
+    flex-grow: 1;
+    padding: 1.5rem; /* Padding around the actual content */
+    /* background-color: transparent; ensures main layout bg shows */
+}
+
+
+/* --- Mobile Responsive Styles for Layouts --- */
+@media (max-width: 992px) { /* Tablet and mobile */
+    .dashboard-sidebar-container {
+        transform: translateX(-100%); /* Hide sidebar off-screen */
+    }
+    .dashboard-layout.sidebar-open .dashboard-sidebar-container {
+        transform: translateX(0); /* Show sidebar */
+    }
+    .dashboard-content-wrapper {
+        margin-left: 0; /* Full width for content */
+    }
+    .sidebar-toggle-btn {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) { /* Mobile specific for Navbar */
+    .navbar-container {
+        padding: 0 1rem; /* Less padding for navbar on mobile */
+    }
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: calc(100vh - 70px); /* Full height minus navbar */
+        position: absolute;
+        top: 70px; /* Position below navbar */
+        left: -100%; /* Hidden off-screen */
+        opacity: 1;
+        transition: all 0.4s ease;
+        background-color: var(--light-color); /* Solid background for mobile menu */
+        padding-top: 2rem; /* Space from top */
+    }
+    .nav-menu.active {
+        left: 0; /* Slide in from left */
+        opacity: 1;
+        z-index: 1; /* Ensure it's above other content */
+    }
+    .nav-item {
+        width: 100%;
+        height: auto; /* Adjust height for stacked items */
+    }
+    .nav-links {
+        text-align: center;
+        padding: 1.5rem; /* Larger touch targets */
+        width: 100%;
+        display: table;
+        border-bottom: none; /* Remove desktop underline effect */
+    }
+    .nav-links:hover, .nav-links.active {
+        color: var(--primary-color);
+        background-color: var(--primary-light-color);
+        border-bottom: none;
+    }
+    .nav-links.btn, .nav-links-button.btn {
+        width: 80%;
+        margin: 1rem auto; /* Center buttons */
+        display: block;
+    }
+    .menu-icon {
+        display: block; /* Show hamburger icon */
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: var(--primary-color);
+    }
+}

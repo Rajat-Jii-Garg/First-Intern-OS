@@ -1,0 +1,95 @@
+/* client/src/components/Auth/Auth.css */
+.auth-page-wrapper { /* Used in LoginPage.js and SignupPage.js */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 70px); /* Adjust based on Navbar height */
+    padding: 2rem 1rem;
+    background-color: var(--background-color);
+}
+
+.auth-form-container {
+    background-color: var(--light-color);
+    padding: 2.5rem; /* More padding */
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-lg);
+    width: 100%;
+    max-width: 450px; /* Slightly wider form */
+    text-align: center;
+}
+
+.auth-title {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.8rem; /* Larger title */
+    font-weight: 600;
+}
+
+.auth-subtitle {
+    color: var(--text-light-color);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+.auth-form .form-group {
+    margin-bottom: 1.25rem;
+    text-align: left;
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.input-with-icon svg {
+    position: absolute;
+    left: 1rem;
+    color: var(--text-light-color);
+    font-size: 0.9em;
+}
+.input-with-icon input {
+    padding-left: 2.8rem; /* Space for icon */
+}
+
+
+.auth-submit-btn {
+    margin-top: 0.5rem; /* Space before button */
+    padding: 0.85rem 1.5rem !important; /* Ensure button padding */
+    font-size: 1.05rem !important;
+}
+.auth-submit-btn .spinner.small-spinner { /* Spinner inside button */
+    border-left-color: var(--light-color); /* White spinner on blue bg */
+}
+
+
+.auth-switch-text {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-light-color);
+}
+
+.auth-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+.auth-link:hover {
+    text-decoration: underline;
+    color: var(--primary-hover-color);
+}
+
+/* Alert specific to auth forms if needed, else global Alert component style applies */
+.auth-form-container .alert {
+    margin-bottom: 1.5rem;
+    text-align: left; /* Align alert text left */
+}
+
+@media (max-width: 480px) {
+    .auth-form-container {
+        padding: 1.5rem;
+        box-shadow: var(--box-shadow-md);
+    }
+    .auth-title {
+        font-size: 1.6rem;
+    }
+}

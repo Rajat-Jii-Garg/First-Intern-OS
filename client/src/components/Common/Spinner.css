@@ -1,0 +1,28 @@
+/* client/src/components/Common/Spinner.css */
+/* Global spinner styles are in index.css */
+
+/* For inline spinner specifically */
+.inline-spinner-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+}
+
+.small-spinner {
+    width: 20px;
+    height: 20px;
+    border-width: 3px; /* Thinner border for smaller spinner */
+}
+
+.spinner-message { /* For full page spinner message */
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: var(--text-light-color);
+    font-weight: 500;
+}
+
+.spinner-message-inline { /* For inline spinner message */
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
